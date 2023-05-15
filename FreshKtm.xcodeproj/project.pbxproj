@@ -9,21 +9,33 @@
 /* Begin PBXBuildFile section */
 		5007247C2A120F0800A728C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5007247B2A120F0800A728C3 /* AppDelegate.swift */; };
 		5007247E2A120F0800A728C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5007247D2A120F0800A728C3 /* SceneDelegate.swift */; };
-		500724802A120F0800A728C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5007247F2A120F0800A728C3 /* ViewController.swift */; };
-		500724832A120F0800A728C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 500724812A120F0800A728C3 /* Main.storyboard */; };
+		500724802A120F0800A728C3 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5007247F2A120F0800A728C3 /* LandingViewController.swift */; };
 		500724852A120F0900A728C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 500724842A120F0900A728C3 /* Assets.xcassets */; };
 		500724882A120F0900A728C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 500724862A120F0900A728C3 /* LaunchScreen.storyboard */; };
+		500724912A12126400A728C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500724902A12126400A728C3 /* LoginViewController.swift */; };
+		500724992A1217FB00A728C3 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500724952A1217FB00A728C3 /* Poppins-Medium.ttf */; };
+		5007249A2A1217FB00A728C3 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500724962A1217FB00A728C3 /* Poppins-Regular.ttf */; };
+		5007249B2A1217FB00A728C3 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500724972A1217FB00A728C3 /* Poppins-Light.ttf */; };
+		5007249C2A1217FB00A728C3 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500724982A1217FB00A728C3 /* Poppins-Bold.ttf */; };
+		FBA12C5BC6B5778B37FF0C89 /* Pods_FreshKtm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D27D5CC5D9F825BBE926D6 /* Pods_FreshKtm.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0DDE5986D83714546A940AAC /* Pods-FreshKtm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreshKtm.debug.xcconfig"; path = "Target Support Files/Pods-FreshKtm/Pods-FreshKtm.debug.xcconfig"; sourceTree = "<group>"; };
 		500724782A120F0800A728C3 /* FreshKtm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FreshKtm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5007247B2A120F0800A728C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5007247D2A120F0800A728C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5007247F2A120F0800A728C3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		500724822A120F0800A728C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5007247F2A120F0800A728C3 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		500724842A120F0900A728C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		500724872A120F0900A728C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		500724892A120F0900A728C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		500724902A12126400A728C3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		500724952A1217FB00A728C3 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Medium.ttf"; path = "../../../../../../Downloads/Poppins/Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		500724962A1217FB00A728C3 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../../../Downloads/Poppins/Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		500724972A1217FB00A728C3 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Light.ttf"; path = "../../../../../../Downloads/Poppins/Poppins-Light.ttf"; sourceTree = "<group>"; };
+		500724982A1217FB00A728C3 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Bold.ttf"; path = "../../../../../../Downloads/Poppins/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		54D27D5CC5D9F825BBE926D6 /* Pods_FreshKtm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreshKtm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0CC48C3BEC4191D8650D701 /* Pods-FreshKtm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreshKtm.release.xcconfig"; path = "Target Support Files/Pods-FreshKtm/Pods-FreshKtm.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBA12C5BC6B5778B37FF0C89 /* Pods_FreshKtm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +55,8 @@
 			children = (
 				5007247A2A120F0800A728C3 /* FreshKtm */,
 				500724792A120F0800A728C3 /* Products */,
+				BB7F87503E762F665F96192E /* Pods */,
+				8C7717FDE220CE35B2DE9D03 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +71,68 @@
 		5007247A2A120F0800A728C3 /* FreshKtm */ = {
 			isa = PBXGroup;
 			children = (
-				5007247B2A120F0800A728C3 /* AppDelegate.swift */,
-				5007247D2A120F0800A728C3 /* SceneDelegate.swift */,
-				5007247F2A120F0800A728C3 /* ViewController.swift */,
-				500724812A120F0800A728C3 /* Main.storyboard */,
+				500724932A1217CE00A728C3 /* Resources */,
+				5007248F2A12123C00A728C3 /* Supporting Files */,
+				500724922A1212C900A728C3 /* Controllers */,
 				500724842A120F0900A728C3 /* Assets.xcassets */,
-				500724862A120F0900A728C3 /* LaunchScreen.storyboard */,
 				500724892A120F0900A728C3 /* Info.plist */,
 			);
 			path = FreshKtm;
+			sourceTree = "<group>";
+		};
+		5007248F2A12123C00A728C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5007247B2A120F0800A728C3 /* AppDelegate.swift */,
+				5007247D2A120F0800A728C3 /* SceneDelegate.swift */,
+				500724862A120F0900A728C3 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		500724922A1212C900A728C3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5007247F2A120F0800A728C3 /* LandingViewController.swift */,
+				500724902A12126400A728C3 /* LoginViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		500724932A1217CE00A728C3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				500724942A1217D700A728C3 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		500724942A1217D700A728C3 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				500724982A1217FB00A728C3 /* Poppins-Bold.ttf */,
+				500724972A1217FB00A728C3 /* Poppins-Light.ttf */,
+				500724952A1217FB00A728C3 /* Poppins-Medium.ttf */,
+				500724962A1217FB00A728C3 /* Poppins-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8C7717FDE220CE35B2DE9D03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				54D27D5CC5D9F825BBE926D6 /* Pods_FreshKtm.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BB7F87503E762F665F96192E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0DDE5986D83714546A940AAC /* Pods-FreshKtm.debug.xcconfig */,
+				F0CC48C3BEC4191D8650D701 /* Pods-FreshKtm.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +142,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5007248C2A120F0900A728C3 /* Build configuration list for PBXNativeTarget "FreshKtm" */;
 			buildPhases = (
+				6872FB9CD1B1E04BC352B168 /* [CP] Check Pods Manifest.lock */,
 				500724742A120F0800A728C3 /* Sources */,
 				500724752A120F0800A728C3 /* Frameworks */,
 				500724762A120F0800A728C3 /* Resources */,
+				9A226C9DAA9A27EF4C8A8924 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,20 +195,66 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				500724992A1217FB00A728C3 /* Poppins-Medium.ttf in Resources */,
+				5007249C2A1217FB00A728C3 /* Poppins-Bold.ttf in Resources */,
+				5007249B2A1217FB00A728C3 /* Poppins-Light.ttf in Resources */,
 				500724882A120F0900A728C3 /* LaunchScreen.storyboard in Resources */,
 				500724852A120F0900A728C3 /* Assets.xcassets in Resources */,
-				500724832A120F0800A728C3 /* Main.storyboard in Resources */,
+				5007249A2A1217FB00A728C3 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6872FB9CD1B1E04BC352B168 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FreshKtm-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A226C9DAA9A27EF4C8A8924 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FreshKtm/Pods-FreshKtm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FreshKtm/Pods-FreshKtm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FreshKtm/Pods-FreshKtm-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		500724742A120F0800A728C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				500724802A120F0800A728C3 /* ViewController.swift in Sources */,
+				500724912A12126400A728C3 /* LoginViewController.swift in Sources */,
+				500724802A120F0800A728C3 /* LandingViewController.swift in Sources */,
 				5007247C2A120F0800A728C3 /* AppDelegate.swift in Sources */,
 				5007247E2A120F0800A728C3 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +263,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		500724812A120F0800A728C3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				500724822A120F0800A728C3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		500724862A120F0900A728C3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -282,6 +390,7 @@
 		};
 		5007248D2A120F0900A728C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0DDE5986D83714546A940AAC /* Pods-FreshKtm.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -292,7 +401,6 @@
 				INFOPLIST_FILE = FreshKtm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -310,6 +418,7 @@
 		};
 		5007248E2A120F0900A728C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0CC48C3BEC4191D8650D701 /* Pods-FreshKtm.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -320,7 +429,6 @@
 				INFOPLIST_FILE = FreshKtm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
