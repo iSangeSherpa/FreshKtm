@@ -12,8 +12,7 @@ class LandingViewController: UIViewController {
     
     lazy var button : UIButton = {
         var button = UIButton()
-        button.titleLabel?.font = .poppinsMedium(fontSize: 20)
-        button.contentEdgeInsets = UIEdgeInsets(top: 13, left: 150, bottom: 13, right: 150)
+        button.titleLabel?.font = .robotoMedium(fontSize: 20)
         button.setTitle("Get Started", for: .normal)
         button.addTarget(
             self,
@@ -40,13 +39,17 @@ class LandingViewController: UIViewController {
         view.addSubview(imageView)
         
         imageView.snp.makeConstraints { maker in
-            maker.top.equalToSuperview().offset(200)
+            maker.top.equalToSuperview().offset(100)
             maker.leading.trailing.equalToSuperview()
         }
         
         button.snp.makeConstraints { maker in
-            maker.top.equalTo(imageView.snp.bottom).offset(90)
+            maker.bottom.equalToSuperview().offset(-100)
+            maker.top.equalTo(imageView.snp.bottom).offset(40)
             maker.centerX.equalTo(imageView.snp.centerX)
+            maker.height.equalTo(60)
+            maker.left.equalToSuperview().offset(20)
+            maker.right.equalToSuperview().offset(-20)
         }
 
     }

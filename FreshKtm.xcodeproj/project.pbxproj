@@ -15,6 +15,11 @@
 		500724912A12126400A728C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500724902A12126400A728C3 /* LoginViewController.swift */; };
 		500724A42A121D0400A728C3 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500724A32A121D0400A728C3 /* FontExtension.swift */; };
 		500724A62A12289C00A728C3 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500724A52A12289C00A728C3 /* DropShadow.swift */; };
+		500724B02A12326800A728C3 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500724AB2A12326700A728C3 /* Roboto-Italic.ttf */; };
+		500724B12A12326800A728C3 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500724AC2A12326700A728C3 /* Roboto-Medium.ttf */; };
+		500724B22A12326800A728C3 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500724AD2A12326800A728C3 /* Roboto-Bold.ttf */; };
+		500724B32A12326800A728C3 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500724AE2A12326800A728C3 /* Roboto-Light.ttf */; };
+		500724B42A12326800A728C3 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500724AF2A12326800A728C3 /* Roboto-Regular.ttf */; };
 		FBA12C5BC6B5778B37FF0C89 /* Pods_FreshKtm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D27D5CC5D9F825BBE926D6 /* Pods_FreshKtm.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,12 +33,13 @@
 		500724872A120F0900A728C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		500724892A120F0900A728C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		500724902A12126400A728C3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		5007249D2A121A0A00A728C3 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Regular.ttf"; path = "../../../../../../Downloads/Poppins/Poppins-Regular.ttf"; sourceTree = "<group>"; };
-		5007249E2A121A0A00A728C3 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Light.ttf"; path = "../../../../../../Downloads/Poppins/Poppins-Light.ttf"; sourceTree = "<group>"; };
-		5007249F2A121A0A00A728C3 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Bold.ttf"; path = "../../../../../../Downloads/Poppins/Poppins-Bold.ttf"; sourceTree = "<group>"; };
-		500724A02A121A0A00A728C3 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Poppins-Medium.ttf"; path = "../../../../../../Downloads/Poppins/Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		500724A32A121D0400A728C3 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		500724A52A12289C00A728C3 /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
+		500724AB2A12326700A728C3 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		500724AC2A12326700A728C3 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		500724AD2A12326800A728C3 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		500724AE2A12326800A728C3 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		500724AF2A12326800A728C3 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		54D27D5CC5D9F825BBE926D6 /* Pods_FreshKtm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreshKtm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0CC48C3BEC4191D8650D701 /* Pods-FreshKtm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreshKtm.release.xcconfig"; path = "Target Support Files/Pods-FreshKtm/Pods-FreshKtm.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,10 +117,11 @@
 		500724942A1217D700A728C3 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				5007249F2A121A0A00A728C3 /* Poppins-Bold.ttf */,
-				5007249E2A121A0A00A728C3 /* Poppins-Light.ttf */,
-				500724A02A121A0A00A728C3 /* Poppins-Medium.ttf */,
-				5007249D2A121A0A00A728C3 /* Poppins-Regular.ttf */,
+				500724AD2A12326800A728C3 /* Roboto-Bold.ttf */,
+				500724AB2A12326700A728C3 /* Roboto-Italic.ttf */,
+				500724AE2A12326800A728C3 /* Roboto-Light.ttf */,
+				500724AC2A12326700A728C3 /* Roboto-Medium.ttf */,
+				500724AF2A12326800A728C3 /* Roboto-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -205,7 +212,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				500724B12A12326800A728C3 /* Roboto-Medium.ttf in Resources */,
+				500724B42A12326800A728C3 /* Roboto-Regular.ttf in Resources */,
 				500724882A120F0900A728C3 /* LaunchScreen.storyboard in Resources */,
+				500724B32A12326800A728C3 /* Roboto-Light.ttf in Resources */,
+				500724B22A12326800A728C3 /* Roboto-Bold.ttf in Resources */,
+				500724B02A12326800A728C3 /* Roboto-Italic.ttf in Resources */,
 				500724852A120F0900A728C3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +421,7 @@
 				INFOPLIST_FILE = FreshKtm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -437,6 +450,7 @@
 				INFOPLIST_FILE = FreshKtm/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -3,28 +3,28 @@ import UIKit
 
 extension UIFont {
     
-    static func poppinsBold(fontSize : CGFloat) -> UIFont? {
-       return UIFont(name: "Poppins-Bold", size: fontSize)
+    static func robotoItalic(fontSize : CGFloat) -> UIFont? {
+       return UIFont(name: "Roboto-Italic", size: fontSize)
+    }
+    
+    static func robotoLight(fontSize : CGFloat) -> UIFont? {
+        return UIFont(name: "Roboto-Light", size: fontSize)
     }
 
-    static func poppinsMedium(fontSize : CGFloat) -> UIFont? {
-       return UIFont(name: "Poppins-Medium", size: fontSize)
+    static func robotoRegular(fontSize : CGFloat) -> UIFont? {
+        return UIFont(name: "Roboto-Regular", size: fontSize)
+    }
+    
+    static func robotoMedium(fontSize : CGFloat) -> UIFont? {
+       return UIFont(name: "Roboto-Medium", size: fontSize)
     }
 
-    static func poppinsRegular(fontSize : CGFloat) -> UIFont? {
-        return UIFont(name: "Poppins-Regular", size: fontSize)
+    static func robotoSemiBold(fontSize : CGFloat) -> UIFont? {
+       return UIFont(name: "Roboto-Semibold", size: fontSize)
     }
 
-    static func poppinsSemibold(fontSize : CGFloat) -> UIFont? {
-       return UIFont(name: "Poppins-Semibold", size: fontSize)
-    }
-
-    static func poppinsLight(fontSize : CGFloat) -> UIFont? {
-       return UIFont(name: "Poppins-Light", size: fontSize)
-    }
-
-    static func poppinsItalic(fontSize : CGFloat) -> UIFont? {
-       return UIFont(name: "Poppins-Italic", size: fontSize)
+    static func robotoBold(fontSize : CGFloat) -> UIFont? {
+       return UIFont(name: "Roboto-Bold", size: fontSize)
     }
     
 }
