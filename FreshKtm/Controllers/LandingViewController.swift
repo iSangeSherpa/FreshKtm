@@ -5,15 +5,16 @@ class LandingViewController: UIViewController {
     
     var imageView : UIImageView = {
        var imageView = UIImageView()
-        imageView.image = UIImage(systemName: "questionmark")
-        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "LandingPageImage")
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
     lazy var button : UIButton = {
         var button = UIButton()
-        button.titleLabel?.font = UIFont(name: "Poppins", size: 20)
-        button.setTitle("get started", for: .normal)
+        button.titleLabel?.font = .poppinsMedium(fontSize: 20)
+        button.contentEdgeInsets = UIEdgeInsets(top: 13, left: 150, bottom: 13, right: 150)
+        button.setTitle("Get Started", for: .normal)
         button.addTarget(
             self,
             action: #selector(pushToNextController),
@@ -34,10 +35,18 @@ class LandingViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .white
+        
         view.addSubview(button)
+        view.addSubview(imageView)
+        
+        imageView.snp.makeConstraints { maker in
+            maker.top.equalToSuperview().offset(200)
+            maker.leading.trailing.equalToSuperview()
+        }
         
         button.snp.makeConstraints { maker in
-            maker.center.equalToSuperview()
+            maker.top.equalTo(imageView.snp.bottom).offset(90)
+            maker.centerX.equalTo(imageView.snp.centerX)
         }
 
     }
