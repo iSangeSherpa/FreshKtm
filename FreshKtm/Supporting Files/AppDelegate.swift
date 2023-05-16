@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  FreshKtm
-//
-//  Created by Sange Sherpa on 15/05/2023.
-//
-
 import UIKit
 
 @main

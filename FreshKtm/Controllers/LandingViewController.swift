@@ -19,7 +19,7 @@ class LandingViewController: UIViewController {
             action: #selector(pushToNextController),
             for: .touchUpInside
         )
-        button.layer.cornerRadius = 12
+        button.layer.cornerRadius = 8
         button.backgroundColor = UIColor(red: 31/255, green: 143/255, blue: 42/255, alpha: 1.0)
         return button
     }()
@@ -47,7 +47,7 @@ class LandingViewController: UIViewController {
             maker.bottom.equalToSuperview().offset(-100)
             maker.top.equalTo(imageView.snp.bottom).offset(40)
             maker.centerX.equalTo(imageView.snp.centerX)
-            maker.height.equalTo(60)
+            maker.height.equalTo(44)
             maker.left.equalToSuperview().offset(20)
             maker.right.equalToSuperview().offset(-20)
         }

@@ -20,6 +20,8 @@
 		500724B22A12326800A728C3 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500724AD2A12326800A728C3 /* Roboto-Bold.ttf */; };
 		500724B32A12326800A728C3 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500724AE2A12326800A728C3 /* Roboto-Light.ttf */; };
 		500724B42A12326800A728C3 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500724AF2A12326800A728C3 /* Roboto-Regular.ttf */; };
+		504DB88A2A13417F0040932D /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DB8892A13417F0040932D /* SignupViewController.swift */; };
+		504DB88C2A135D7D0040932D /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DB88B2A135D7D0040932D /* VerificationViewController.swift */; };
 		FBA12C5BC6B5778B37FF0C89 /* Pods_FreshKtm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D27D5CC5D9F825BBE926D6 /* Pods_FreshKtm.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		500724AD2A12326800A728C3 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		500724AE2A12326800A728C3 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		500724AF2A12326800A728C3 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		504DB8892A13417F0040932D /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		504DB88B2A135D7D0040932D /* VerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewController.swift; sourceTree = "<group>"; };
 		54D27D5CC5D9F825BBE926D6 /* Pods_FreshKtm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreshKtm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0CC48C3BEC4191D8650D701 /* Pods-FreshKtm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreshKtm.release.xcconfig"; path = "Target Support Files/Pods-FreshKtm/Pods-FreshKtm.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +106,8 @@
 			children = (
 				5007247F2A120F0800A728C3 /* LandingViewController.swift */,
 				500724902A12126400A728C3 /* LoginViewController.swift */,
+				504DB8892A13417F0040932D /* SignupViewController.swift */,
+				504DB88B2A135D7D0040932D /* VerificationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -272,6 +278,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				500724A42A121D0400A728C3 /* FontExtension.swift in Sources */,
+				504DB88A2A13417F0040932D /* SignupViewController.swift in Sources */,
+				504DB88C2A135D7D0040932D /* VerificationViewController.swift in Sources */,
 				500724912A12126400A728C3 /* LoginViewController.swift in Sources */,
 				500724802A120F0800A728C3 /* LandingViewController.swift in Sources */,
 				5007247C2A120F0800A728C3 /* AppDelegate.swift in Sources */,

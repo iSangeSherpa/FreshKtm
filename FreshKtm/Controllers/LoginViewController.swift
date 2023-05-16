@@ -9,7 +9,14 @@ import MaterialComponents.MaterialTextControls_OutlinedTextFields
 class LoginViewController: UIViewController {
         
     // MARK: Variables
-    var frame = CGRect(x: 0, y: 0, width: 300, height: 100)
+    var smallFont : CGFloat = 15
+    var colorLight : UIColor = {
+        return UIColor(red: 95/255, green: 95/255, blue: 95/255, alpha: 1)
+    }()
+    var colorGreen : UIColor = {
+        return UIColor(red: 31/255, green: 143/255, blue: 42/255, alpha: 1.0)
+    }()
+    
     
     // Images
     var logoImageView : UIImageView = {
@@ -29,23 +36,24 @@ class LoginViewController: UIViewController {
     // Fields
     
     lazy var usernameField : MDCOutlinedTextField = {
+//        var usernameField = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         var usernameField = MDCOutlinedTextField()
         usernameField.label.text = "Enter email or username"
-        usernameField.label.font = .robotoMedium(fontSize: 14)
+        usernameField.label.font = .robotoMedium(fontSize: smallFont)
+        usernameField.layer.cornerRadius = 8
+        
         usernameField.setNormalLabelColor(UIColor.lightGray, for: .normal)
         usernameField.setFloatingLabelColor(UIColor.gray, for: .editing)
         usernameField.setOutlineColor(UIColor.lightGray, for: .normal)
         usernameField.setOutlineColor(UIColor.gray, for: .editing)
         usernameField.translatesAutoresizingMaskIntoConstraints = false
-        usernameField.layer.cornerRadius = 8
-        usernameField.sizeToFit()
         return usernameField
     }()
     
     lazy var passwordField : MDCOutlinedTextField = {
         var passwordField = MDCOutlinedTextField()
         passwordField.label.text = "Password"
-        passwordField.label.font = .robotoMedium(fontSize: 14)
+        passwordField.label.font = .robotoMedium(fontSize: smallFont)
         passwordField.setNormalLabelColor(UIColor.lightGray, for: .normal)
         passwordField.setFloatingLabelColor(UIColor.gray, for: .editing)
         passwordField.setOutlineColor(UIColor.lightGray, for: .normal)
@@ -57,14 +65,60 @@ class LoginViewController: UIViewController {
     }()
     
     lazy var loginButton : UIButton = {
-        var button = UIButton()
-        button.contentEdgeInsets = UIEdgeInsets(top: 15, left: 115, bottom: 15, right: 114)
-        button.titleLabel?.font = .robotoMedium(fontSize: 20)
-        button.setTitle("Login", for: .normal)
-        button.layer.cornerRadius = 8
-        button.backgroundColor = UIColor(red: 31/255, green: 143/255, blue: 42/255, alpha: 1.0)
+        var loginButton = UIButton()
+        loginButton.contentEdgeInsets = UIEdgeInsets(top: 15, left: 115, bottom: 15, right: 114)
+        loginButton.titleLabel?.font = .robotoMedium(fontSize: 20)
+        loginButton.setTitle("Login", for: .normal)
+        loginButton.layer.cornerRadius = 8
+        loginButton.backgroundColor = colorGreen
+        return loginButton
+    }()
+    
+    
+    //  Labels
+    
+    lazy var forgotPasswordLabel : UILabel = {
+       var label = UILabel()
+        label.text = "Forgot Password / Username ?"
+        label.textColor = colorLight
+        label.font = .robotoRegular(fontSize: 15)
+        return label
+    }()
+    
+    lazy var noAccountLabel : UILabel = {
+       var label = UILabel()
+        label.text = "Don't have an account ?"
+        label.textColor = colorLight
+        label.font = .robotoRegular(fontSize: 15)
+        return label
+    }()
+    
+    lazy var signUpButton : UIButton = {
+       var button = UIButton()
+        button.setTitle("Sign Up", for: .normal)
+        button.titleLabel?.font = .robotoMedium(fontSize: 15)
+        button.setTitleColor(colorGreen, for: .normal)
+        button.backgroundColor = .none
+        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        button.addTarget(
+            self,
+            action: #selector(pushToNextController),
+            for: .touchUpInside
+        )
         return button
     }()
+    
+    lazy var signUpStack : UIStackView = {
+       var stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 5
+        stack.addArrangedSubview(noAccountLabel)
+        stack.addArrangedSubview(signUpButton)
+        return stack
+    }()
+    
+    
+    // Containers
     
     lazy var containerView : UIView = {
        var containerView = UIView()
@@ -76,7 +130,6 @@ class LoginViewController: UIViewController {
         scrollView.isScrollEnabled = true
         scrollView.showsVerticalScrollIndicator = true
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-
         scrollView.addSubview(containerView)
         return scrollView
     }()
@@ -104,6 +157,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
     }
+    
 
     private func setupUI() {
         view.backgroundColor = .white
@@ -116,6 +170,9 @@ class LoginViewController: UIViewController {
         containerView.addSubview(usernameField)
         containerView.addSubview(passwordField)
         containerView.addSubview(loginButton)
+        containerView.addSubview(forgotPasswordLabel)
+        containerView.addSubview(noAccountLabel)
+        containerView.addSubview(signUpStack)
         
         logoImageView.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()
@@ -128,6 +185,7 @@ class LoginViewController: UIViewController {
             maker.height.equalTo(200)
         }
         
+        // Constraints for containers
         scrollViewContainer.snp.makeConstraints { maker in
             maker.centerX.centerY.equalToSuperview()
             maker.leading.equalToSuperview().offset(20)
@@ -160,8 +218,24 @@ class LoginViewController: UIViewController {
         }
         loginButton.snp.makeConstraints { maker in
             maker.top.equalTo(passwordField.snp.bottom).offset(30)
+            maker.height.equalTo(44)
             maker.width.equalToSuperview()
         }
         
+        
+        // Constraints for bottom labels
+        forgotPasswordLabel.snp.makeConstraints { maker in
+            maker.top.equalTo(loginButton.snp.bottom).offset(50)
+            maker.centerX.equalToSuperview()
+        }
+        signUpStack.snp.makeConstraints { maker in
+            maker.top.equalTo(forgotPasswordLabel.snp.bottom).offset(15)
+            maker.centerX.equalToSuperview()
+        }
+        
+    }
+    
+    @objc func pushToNextController() {
+        navigationController?.pushViewController(SignupViewController(), animated: true)
     }
 }
