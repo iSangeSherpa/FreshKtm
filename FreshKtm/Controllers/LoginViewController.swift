@@ -9,7 +9,8 @@ import MaterialComponents.MaterialTextControls_OutlinedTextFields
 class LoginViewController: UIViewController {
         
     // MARK: Variables
-    var smallFont : CGFloat = 15
+    var textFieldSpacing = 20
+    var smallFont : CGFloat = 14
     var colorLight : UIColor = {
         return UIColor(red: 95/255, green: 95/255, blue: 95/255, alpha: 1)
     }()
@@ -35,12 +36,16 @@ class LoginViewController: UIViewController {
     
     // Fields
     
+//    @FormMaterialTextField(placeholder: "Enter email or username") var usernameField : MaterialComponents.MDCOutlinedTextField
     lazy var usernameField : MDCOutlinedTextField = {
-//        var usernameField = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+
         var usernameField = MDCOutlinedTextField()
         usernameField.label.text = "Enter email or username"
         usernameField.label.font = .robotoMedium(fontSize: smallFont)
         usernameField.layer.cornerRadius = 8
+        
+        usernameField.preferredContainerHeight = 44
+        usernameField.verticalDensity = 1
         
         usernameField.setNormalLabelColor(UIColor.lightGray, for: .normal)
         usernameField.setFloatingLabelColor(UIColor.gray, for: .editing)
@@ -53,14 +58,17 @@ class LoginViewController: UIViewController {
     lazy var passwordField : MDCOutlinedTextField = {
         var passwordField = MDCOutlinedTextField()
         passwordField.label.text = "Password"
-        passwordField.label.font = .robotoMedium(fontSize: smallFont)
+        passwordField.label.font = .robotoRegular(fontSize: smallFont)
+        passwordField.layer.cornerRadius = 8
+        
+        passwordField.preferredContainerHeight = 44
+        passwordField.verticalDensity = 1
+        
         passwordField.setNormalLabelColor(UIColor.lightGray, for: .normal)
         passwordField.setFloatingLabelColor(UIColor.gray, for: .editing)
         passwordField.setOutlineColor(UIColor.lightGray, for: .normal)
         passwordField.setOutlineColor(UIColor.gray, for: .editing)
         passwordField.translatesAutoresizingMaskIntoConstraints = false
-        passwordField.layer.cornerRadius = 8
-        passwordField.sizeToFit()
         return passwordField
     }()
     
@@ -213,7 +221,7 @@ class LoginViewController: UIViewController {
             maker.width.equalToSuperview()
         }
         passwordField.snp.makeConstraints { maker in
-            maker.top.equalTo(usernameField.snp.bottom).offset(15)
+            maker.top.equalTo(usernameField.snp.bottom).offset(textFieldSpacing)
             maker.width.equalToSuperview()
         }
         loginButton.snp.makeConstraints { maker in
@@ -232,6 +240,7 @@ class LoginViewController: UIViewController {
             maker.top.equalTo(forgotPasswordLabel.snp.bottom).offset(15)
             maker.centerX.equalToSuperview()
         }
+        
         
     }
     

@@ -4,7 +4,7 @@ import SnapKit
 // Material component dependencies
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
-class VerificationViewController: UIViewController {
+class OtpVerificationViewController: UIViewController {
     
     // MARK: Variables
     var textFieldSpacingSmall = 20
@@ -40,20 +40,21 @@ class VerificationViewController: UIViewController {
     
     //  Labels
     
-    lazy var phoneLabel : UILabel = {
-       var phoneLabel = UILabel()
-        phoneLabel.text = "Enter your Phone Number"
-        phoneLabel.textColor = colorGreen
-        phoneLabel.font = .robotoMedium(fontSize: mediumFont)
-        return phoneLabel
+    lazy var otpLabel : UILabel = {
+       var otpLabel = UILabel()
+        otpLabel.text = "OTP Verification"
+        otpLabel.textColor = colorGreen
+        otpLabel.font = .robotoMedium(fontSize: mediumFont)
+        return otpLabel
     }()
     
-    lazy var helperLabel : UILabel = {
-       var helperLabel = UILabel()
-        helperLabel.text = "We will send you a 6-digit verification code"
-        helperLabel.textColor = .gray
-        helperLabel.font = .robotoRegular(fontSize: smallFont)
-        return helperLabel
+    lazy var enterLabel : UILabel = {
+       var enterLabel = UILabel()
+        enterLabel.text = "Enter the OTP sent to +977 XXX-XXXXXX"
+        enterLabel.textColor = .gray
+        enterLabel.font = .robotoRegular(fontSize: smallFont)
+        enterLabel.numberOfLines = 0
+        return enterLabel
     }()
     
     var facebookLogo : UIImageView = {
@@ -82,10 +83,73 @@ class VerificationViewController: UIViewController {
     
     
     // Fields
-    lazy var phonePrefix : MDCOutlinedTextField = {
-        var phonePrefix = MDCOutlinedTextField()
-        phonePrefix.frame.size = CGSize(width: 30, height: 0)
-        phonePrefix.label.text = "977"
+    lazy var opt_1 : MDCOutlinedTextField = {
+        var phonePrefix = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        phonePrefix.label.font = .robotoRegular(fontSize: smallFont)
+        phonePrefix.layer.cornerRadius = 8
+        
+        phonePrefix.preferredContainerHeight = 44
+        phonePrefix.verticalDensity = 1
+        
+        phonePrefix.setNormalLabelColor(UIColor.lightGray, for: .normal)
+        phonePrefix.setOutlineColor(UIColor.lightGray, for: .normal)
+        phonePrefix.translatesAutoresizingMaskIntoConstraints = false
+        return phonePrefix
+    }()
+    lazy var opt_2 : MDCOutlinedTextField = {
+        var phonePrefix = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        phonePrefix.label.font = .robotoRegular(fontSize: smallFont)
+        phonePrefix.layer.cornerRadius = 8
+        
+        phonePrefix.preferredContainerHeight = 44
+        phonePrefix.verticalDensity = 1
+        
+        phonePrefix.setNormalLabelColor(UIColor.lightGray, for: .normal)
+        phonePrefix.setOutlineColor(UIColor.lightGray, for: .normal)
+        phonePrefix.translatesAutoresizingMaskIntoConstraints = false
+        return phonePrefix
+    }()
+    lazy var opt_3 : MDCOutlinedTextField = {
+        var phonePrefix = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        phonePrefix.label.font = .robotoRegular(fontSize: smallFont)
+        phonePrefix.layer.cornerRadius = 8
+        
+        phonePrefix.preferredContainerHeight = 44
+        phonePrefix.verticalDensity = 1
+        
+        phonePrefix.setNormalLabelColor(UIColor.lightGray, for: .normal)
+        phonePrefix.setOutlineColor(UIColor.lightGray, for: .normal)
+        phonePrefix.translatesAutoresizingMaskIntoConstraints = false
+        return phonePrefix
+    }()
+    lazy var opt_4 : MDCOutlinedTextField = {
+        var phonePrefix = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        phonePrefix.label.font = .robotoRegular(fontSize: smallFont)
+        phonePrefix.layer.cornerRadius = 8
+        
+        phonePrefix.preferredContainerHeight = 44
+        phonePrefix.verticalDensity = 1
+        
+        phonePrefix.setNormalLabelColor(UIColor.lightGray, for: .normal)
+        phonePrefix.setOutlineColor(UIColor.lightGray, for: .normal)
+        phonePrefix.translatesAutoresizingMaskIntoConstraints = false
+        return phonePrefix
+    }()
+    lazy var opt_5 : MDCOutlinedTextField = {
+        var phonePrefix = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        phonePrefix.label.font = .robotoRegular(fontSize: smallFont)
+        phonePrefix.layer.cornerRadius = 8
+        
+        phonePrefix.preferredContainerHeight = 44
+        phonePrefix.verticalDensity = 1
+        
+        phonePrefix.setNormalLabelColor(UIColor.lightGray, for: .normal)
+        phonePrefix.setOutlineColor(UIColor.lightGray, for: .normal)
+        phonePrefix.translatesAutoresizingMaskIntoConstraints = false
+        return phonePrefix
+    }()
+    lazy var opt_6 : MDCOutlinedTextField = {
+        var phonePrefix = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         phonePrefix.label.font = .robotoRegular(fontSize: smallFont)
         phonePrefix.layer.cornerRadius = 8
         
@@ -98,39 +162,56 @@ class VerificationViewController: UIViewController {
         return phonePrefix
     }()
     
-    lazy var phoneField : MDCOutlinedTextField = {
-        var phoneField = MDCOutlinedTextField()
-        phonePrefix.frame.size = CGSize(width: 60, height: 0)
-        phoneField.label.text = "Phone Number"
-        phoneField.label.font = .robotoRegular(fontSize: smallFont)
-        phoneField.layer.cornerRadius = 8
-        
-        phoneField.preferredContainerHeight = 44
-        phoneField.verticalDensity = 1
-        
-        phoneField.setNormalLabelColor(UIColor.lightGray, for: .normal)
-        phoneField.setOutlineColor(UIColor.lightGray, for: .normal)
-        phoneField.translatesAutoresizingMaskIntoConstraints = false
-        return phoneField
+    
+    lazy var fieldStack : UIStackView = {
+        var fieldStack = UIStackView()
+        fieldStack.axis = .horizontal
+        fieldStack.spacing = 10
+        fieldStack.distribution = .fillEqually
+
+        fieldStack.addArrangedSubview(opt_1)
+        fieldStack.addArrangedSubview(opt_2)
+        fieldStack.addArrangedSubview(opt_3)
+        fieldStack.addArrangedSubview(opt_4)
+        fieldStack.addArrangedSubview(opt_5)
+        fieldStack.addArrangedSubview(opt_6)
+        return fieldStack
     }()
     
-    lazy var noCodeLabel : UILabel = {
-        var noCodeLabel = UILabel()
-        noCodeLabel.text = "Didn't get the code ?"
-        noCodeLabel.textColor = .gray
-        noCodeLabel.font = .robotoRegular(fontSize: smallFont)
-        return noCodeLabel
+    lazy var otpConfirmationLabel : UILabel = {
+        var otpConfirmationLabel = UILabel()
+        otpConfirmationLabel.text = "Didn't receive OTP ?"
+        otpConfirmationLabel.textColor = .gray
+        otpConfirmationLabel.font = .robotoRegular(fontSize: smallFont)
+        return otpConfirmationLabel
+    }()
+
+    lazy var otpConfirmationCounterLabel : UILabel = {
+        var otpConfirmationCounterLabel = UILabel()
+        otpConfirmationCounterLabel.text = "Resend 0:30"
+        otpConfirmationCounterLabel.textColor = colorGreen
+        otpConfirmationCounterLabel.font = .robotoRegular(fontSize: smallFont)
+        return otpConfirmationCounterLabel
     }()
     
-    lazy var generateOtpButton : UIButton = {
-        var generateOtpButton = UIButton()
-        generateOtpButton.titleLabel?.font = .robotoMedium(fontSize: largeFont)
-        generateOtpButton.setTitle("Generate OTP", for: .normal)
-        generateOtpButton.layer.cornerRadius = 8
-        generateOtpButton.backgroundColor = colorGreen
+    lazy var confirmationStack : UIStackView = {
+        var confirmationStack = UIStackView()
+        confirmationStack.axis = .horizontal
+        confirmationStack.spacing = 10
+        confirmationStack.distribution = .fillProportionally
         
-        generateOtpButton.addTarget(self, action: #selector(pushToNextController), for: .touchUpInside)
-        return generateOtpButton
+        confirmationStack.addArrangedSubview(otpConfirmationLabel)
+        confirmationStack.addArrangedSubview(otpConfirmationCounterLabel)
+        return confirmationStack
+    }()
+    
+    lazy var verifyButton : UIButton = {
+        var verifyButton = UIButton()
+        verifyButton.titleLabel?.font = .robotoMedium(fontSize: largeFont)
+        verifyButton.setTitle("Verify & Continue", for: .normal)
+        verifyButton.layer.cornerRadius = 8
+        verifyButton.backgroundColor = colorGreen
+        return verifyButton
     }()
     
     lazy var orLabel : UILabel = {
@@ -154,10 +235,9 @@ class VerificationViewController: UIViewController {
         var registerButton = UIButton()
         registerButton.frame.size = CGSize(width: 300, height: 50)
         registerButton.setTitle("Register Now", for: .normal)
-        registerButton.titleLabel?.font = .robotoRegular(fontSize: mediumFont)
+        registerButton.titleLabel?.font = .robotoRegular(fontSize: smallFont)
         registerButton.setTitleColor(colorGreen, for: .normal)
         
-//        registerButton.addTarget(self, action: #selector(pushToNextController), for: .touchUpInside)
         return registerButton
     }()
     
@@ -214,19 +294,17 @@ class VerificationViewController: UIViewController {
 
     private func setupUI() {
         view.backgroundColor = .white
-        phonePrefix.isUserInteractionEnabled = false
         
         view.addSubview(logoImageView)
         view.addSubview(backgroundImageView)
         view.addSubview(scrollViewContainer)
         
         // MARK: ScrollView ChildViews
-        containerView.addSubview(phoneLabel)
-        containerView.addSubview(helperLabel)
-        containerView.addSubview(phonePrefix)
-        containerView.addSubview(phoneField)
-        containerView.addSubview(noCodeLabel)
-        containerView.addSubview(generateOtpButton)
+        containerView.addSubview(otpLabel)
+        containerView.addSubview(enterLabel)
+        containerView.addSubview(fieldStack)
+        containerView.addSubview(confirmationStack)
+        containerView.addSubview(verifyButton)
         containerView.addSubview(orLabel)
         containerView.addSubview(imageStack)
         containerView.addSubview(labelStack)
@@ -255,7 +333,6 @@ class VerificationViewController: UIViewController {
             maker.bottom.right.equalToSuperview().offset(-20)
             maker.width.equalTo(250)
         }
-        
         containerView.snp.makeConstraints { maker in
             maker.left.top.right.bottom.equalToSuperview()
             maker.width.equalToSuperview()
@@ -263,36 +340,30 @@ class VerificationViewController: UIViewController {
         }
         
         // MARK: Constraints for labels
-        phoneLabel.snp.makeConstraints { maker in
+        otpLabel.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()
-            maker.top.equalToSuperview().offset(textFieldSpacingMedium)
+            maker.top.equalToSuperview().offset(textFieldSpacingSmall)
         }
-        helperLabel.snp.makeConstraints { maker in
+        enterLabel.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()
-            maker.top.equalTo(phoneLabel.snp.bottom).offset(textFieldSpacingMedium)
+            maker.top.equalTo(otpLabel.snp.bottom).offset(textFieldSpacingSmall)
         }
-        phonePrefix.snp.makeConstraints { maker in
-            maker.left.equalToSuperview().offset(1)
-            maker.top.equalTo(helperLabel.snp.bottom).offset(textFieldSpacingMedium)
-            maker.width.equalTo(70)
+        fieldStack.snp.makeConstraints { maker in
+            maker.top.equalTo(enterLabel.snp.bottom).offset(textFieldSpacingMedium)
+            maker.width.equalToSuperview()
         }
-        phoneField.snp.makeConstraints { maker in
-            maker.left.equalTo(phonePrefix.snp.right).offset(10)
-            maker.top.equalTo(helperLabel.snp.bottom).offset(textFieldSpacingMedium)
-            maker.right.equalToSuperview().offset(-1)
-        }
-        noCodeLabel.snp.makeConstraints { maker in
+        confirmationStack.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()
-            maker.top.equalTo(phoneField.snp.bottom).offset(40)
+            maker.top.equalTo(fieldStack.snp.bottom).offset(40)
         }
-        generateOtpButton.snp.makeConstraints { maker in
-            maker.top.equalTo(noCodeLabel.snp.bottom).offset(textFieldSpacingSmall)
+        verifyButton.snp.makeConstraints { maker in
+            maker.top.equalTo(confirmationStack.snp.bottom).offset(textFieldSpacingSmall)
             maker.height.equalTo(44)
             maker.width.equalToSuperview()
         }
         orLabel.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()
-            maker.top.equalTo(generateOtpButton.snp.bottom).offset(textFieldSpacingMedium)
+            maker.top.equalTo(verifyButton.snp.bottom).offset(textFieldSpacingMedium)
         }
         imageStack.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()
@@ -305,10 +376,5 @@ class VerificationViewController: UIViewController {
             maker.centerX.equalToSuperview()
         }
         
-    }
-    
-    
-    @objc func pushToNextController() {
-        navigationController?.pushViewController(OtpVerificationViewController(), animated: true)
     }
 }

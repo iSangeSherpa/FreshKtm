@@ -8,7 +8,8 @@ import MaterialComponents.MaterialTextControls_OutlinedTextFields
 class SignupViewController: UIViewController {
     
     // MARK: Variables
-    var smallFont : CGFloat = 15
+    var textFieldSpacing = 20
+    var smallFont : CGFloat = 14
     var colorLight : UIColor = {
         return UIColor(red: 95/255, green: 95/255, blue: 95/255, alpha: 1)
     }()
@@ -62,8 +63,11 @@ class SignupViewController: UIViewController {
     lazy var usernameField : MDCOutlinedTextField = {
         var usernameField = MDCOutlinedTextField()
         usernameField.label.text = "Enter username"
-        usernameField.label.font = .robotoMedium(fontSize: smallFont)
+        usernameField.label.font = .robotoRegular(fontSize: smallFont)
         usernameField.layer.cornerRadius = 8
+        
+        usernameField.preferredContainerHeight = 44
+        usernameField.verticalDensity = 1
         
         usernameField.setNormalLabelColor(UIColor.lightGray, for: .normal)
         usernameField.setFloatingLabelColor(UIColor.gray, for: .editing)
@@ -76,8 +80,11 @@ class SignupViewController: UIViewController {
     lazy var emailField : MDCOutlinedTextField = {
         var emailField = MDCOutlinedTextField()
         emailField.label.text = "Enter email"
-        emailField.label.font = .robotoMedium(fontSize: smallFont)
+        emailField.label.font = .robotoRegular(fontSize: smallFont)
         emailField.layer.cornerRadius = 8
+        
+        emailField.preferredContainerHeight = 44
+        emailField.verticalDensity = 1
         
         emailField.setNormalLabelColor(UIColor.lightGray, for: .normal)
         emailField.setFloatingLabelColor(UIColor.gray, for: .editing)
@@ -88,36 +95,41 @@ class SignupViewController: UIViewController {
     }()
     
     lazy var passwordField : MDCOutlinedTextField = {
-        var emailField = MDCOutlinedTextField()
-        emailField.label.text = "Enter password"
-        emailField.label.font = .robotoMedium(fontSize: smallFont)
-        emailField.layer.cornerRadius = 8
-        
-        emailField.setNormalLabelColor(UIColor.lightGray, for: .normal)
-        emailField.setFloatingLabelColor(UIColor.gray, for: .editing)
-        emailField.setOutlineColor(UIColor.lightGray, for: .normal)
-        emailField.setOutlineColor(UIColor.gray, for: .editing)
-        emailField.translatesAutoresizingMaskIntoConstraints = false
-        return emailField
-    }()
-    
-    lazy var confirmPasswordField : MDCOutlinedTextField = {
         var passwordField = MDCOutlinedTextField()
-        passwordField.label.text = "Confirm Password"
-        passwordField.label.font = .robotoMedium(fontSize: smallFont)
+        passwordField.label.text = "Enter password"
+        passwordField.label.font = .robotoRegular(fontSize: smallFont)
+        passwordField.layer.cornerRadius = 8
+        
+        passwordField.preferredContainerHeight = 44
+        passwordField.verticalDensity = 1
+        
         passwordField.setNormalLabelColor(UIColor.lightGray, for: .normal)
         passwordField.setFloatingLabelColor(UIColor.gray, for: .editing)
         passwordField.setOutlineColor(UIColor.lightGray, for: .normal)
         passwordField.setOutlineColor(UIColor.gray, for: .editing)
         passwordField.translatesAutoresizingMaskIntoConstraints = false
+        return passwordField
+    }()
+    
+    lazy var confirmPasswordField : MDCOutlinedTextField = {
+        var passwordField = MDCOutlinedTextField()
+        passwordField.label.text = "Confirm Password"
+        passwordField.label.font = .robotoRegular(fontSize: smallFont)
         passwordField.layer.cornerRadius = 8
-        passwordField.sizeToFit()
+        
+        passwordField.preferredContainerHeight = 44
+        passwordField.verticalDensity = 1
+        
+        passwordField.setNormalLabelColor(UIColor.lightGray, for: .normal)
+        passwordField.setFloatingLabelColor(UIColor.gray, for: .editing)
+        passwordField.setOutlineColor(UIColor.lightGray, for: .normal)
+        passwordField.setOutlineColor(UIColor.gray, for: .editing)
+        passwordField.translatesAutoresizingMaskIntoConstraints = false
         return passwordField
     }()
     
     lazy var signUpButton : UIButton = {
         var signUpButton = UIButton()
-        signUpButton.contentEdgeInsets = UIEdgeInsets(top: 15, left: 115, bottom: 15, right: 114)
         signUpButton.titleLabel?.font = .robotoMedium(fontSize: 20)
         signUpButton.titleLabel?.numberOfLines = 1
         signUpButton.setTitle("Sign up", for: .normal)
@@ -133,7 +145,6 @@ class SignupViewController: UIViewController {
         registerWithPhone.setTitle("Register with Phone Number", for: .normal)
         registerWithPhone.setTitleColor(.gray, for: .normal)
         registerWithPhone.titleLabel?.font = .robotoMedium(fontSize: 14)
-        registerWithPhone.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         registerWithPhone.addTarget(self, action: #selector(pushToNextController), for: .touchUpInside)
         return registerWithPhone
@@ -153,10 +164,8 @@ class SignupViewController: UIViewController {
          button.titleLabel?.font = .robotoRegular(fontSize: 14)
          button.setTitleColor(colorGreen, for: .normal)
          button.backgroundColor = .none
-         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
          return button
     }()
-    
 
     // MARK: Containers
     lazy var containerView : UIView = {
@@ -167,7 +176,7 @@ class SignupViewController: UIViewController {
     lazy var scrollView : UIScrollView = {
        var scrollView = UIScrollView()
         scrollView.isScrollEnabled = true
-        scrollView.showsVerticalScrollIndicator = true
+        scrollView.showsVerticalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
 //        scrollView.backgroundColor = .brown
         scrollView.addSubview(containerView)
@@ -240,32 +249,31 @@ class SignupViewController: UIViewController {
         }
         scrollView.snp.makeConstraints { maker in
             maker.top.left.equalToSuperview().offset(20)
-            maker.right.equalToSuperview().offset(-20)
+            maker.bottom.right.equalToSuperview().offset(-20)
             maker.width.equalTo(250)
-            maker.bottom.equalToSuperview().offset(-20)
         }
         containerView.snp.makeConstraints { maker in
             maker.left.top.right.bottom.equalToSuperview()
             maker.width.equalToSuperview()
-            maker.height.equalTo(700)
+            maker.height.equalTo(600)
         }
         
         
         // MARK: Constraints for input fields
         usernameField.snp.makeConstraints { maker in
-            maker.top.equalToSuperview().offset(50)
+            maker.top.equalToSuperview().offset(30)
             maker.width.equalToSuperview()
         }
         emailField.snp.makeConstraints { maker in
-            maker.top.equalTo(usernameField.snp.bottom).offset(15)
+            maker.top.equalTo(usernameField.snp.bottom).offset(textFieldSpacing)
             maker.width.equalToSuperview()
         }
         passwordField.snp.makeConstraints { maker in
-            maker.top.equalTo(emailField.snp.bottom).offset(15)
+            maker.top.equalTo(emailField.snp.bottom).offset(textFieldSpacing)
             maker.width.equalToSuperview()
         }
         confirmPasswordField.snp.makeConstraints { maker in
-            maker.top.equalTo(passwordField.snp.bottom).offset(15)
+            maker.top.equalTo(passwordField.snp.bottom).offset(textFieldSpacing)
             maker.width.equalToSuperview()
         }
         signUpButton.snp.makeConstraints { maker in
