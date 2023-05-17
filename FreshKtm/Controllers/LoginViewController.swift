@@ -10,14 +10,15 @@ class LoginViewController: UIViewController {
         
     // MARK: Variables
     var textFieldSpacing = 20
+    
     var smallFont : CGFloat = 14
+    var mediumFont : CGFloat = 16
+    var largeFont : CGFloat = 20
+    
     var colorLight : UIColor = {
         return UIColor(red: 95/255, green: 95/255, blue: 95/255, alpha: 1)
     }()
-    var colorGreen : UIColor = {
-        return UIColor(red: 31/255, green: 143/255, blue: 42/255, alpha: 1.0)
-    }()
-    
+    var colorGreen = UIColor(fromHex: "#1F8F2A")
     
     // Images
     var logoImageView : UIImageView = {
@@ -36,46 +37,13 @@ class LoginViewController: UIViewController {
     
     // Fields
     
-//    @FormMaterialTextField(placeholder: "Enter email or username") var usernameField : MaterialComponents.MDCOutlinedTextField
-    lazy var usernameField : MDCOutlinedTextField = {
+    @FormMaterialTextField(placeholder: "Enter email or username") var usernameField : MaterialComponents.MDCOutlinedTextField
+    @FormMaterialTextField(placeholder: "Password") var passwordField : MaterialComponents.MDCOutlinedTextField
 
-        var usernameField = MDCOutlinedTextField()
-        usernameField.label.text = "Enter email or username"
-        usernameField.label.font = .robotoMedium(fontSize: smallFont)
-        usernameField.layer.cornerRadius = 8
-        
-        usernameField.preferredContainerHeight = 44
-        usernameField.verticalDensity = 1
-        
-        usernameField.setNormalLabelColor(UIColor.lightGray, for: .normal)
-        usernameField.setFloatingLabelColor(UIColor.gray, for: .editing)
-        usernameField.setOutlineColor(UIColor.lightGray, for: .normal)
-        usernameField.setOutlineColor(UIColor.gray, for: .editing)
-        usernameField.translatesAutoresizingMaskIntoConstraints = false
-        return usernameField
-    }()
-    
-    lazy var passwordField : MDCOutlinedTextField = {
-        var passwordField = MDCOutlinedTextField()
-        passwordField.label.text = "Password"
-        passwordField.label.font = .robotoRegular(fontSize: smallFont)
-        passwordField.layer.cornerRadius = 8
-        
-        passwordField.preferredContainerHeight = 44
-        passwordField.verticalDensity = 1
-        
-        passwordField.setNormalLabelColor(UIColor.lightGray, for: .normal)
-        passwordField.setFloatingLabelColor(UIColor.gray, for: .editing)
-        passwordField.setOutlineColor(UIColor.lightGray, for: .normal)
-        passwordField.setOutlineColor(UIColor.gray, for: .editing)
-        passwordField.translatesAutoresizingMaskIntoConstraints = false
-        return passwordField
-    }()
     
     lazy var loginButton : UIButton = {
         var loginButton = UIButton()
-        loginButton.contentEdgeInsets = UIEdgeInsets(top: 15, left: 115, bottom: 15, right: 114)
-        loginButton.titleLabel?.font = .robotoMedium(fontSize: 20)
+        loginButton.titleLabel?.font = .robotoMedium(fontSize: mediumFont)
         loginButton.setTitle("Login", for: .normal)
         loginButton.layer.cornerRadius = 8
         loginButton.backgroundColor = colorGreen
@@ -89,7 +57,7 @@ class LoginViewController: UIViewController {
        var label = UILabel()
         label.text = "Forgot Password / Username ?"
         label.textColor = colorLight
-        label.font = .robotoRegular(fontSize: 15)
+        label.font = .robotoRegular(fontSize: smallFont)
         return label
     }()
     
@@ -97,17 +65,16 @@ class LoginViewController: UIViewController {
        var label = UILabel()
         label.text = "Don't have an account ?"
         label.textColor = colorLight
-        label.font = .robotoRegular(fontSize: 15)
+        label.font = .robotoRegular(fontSize: smallFont)
         return label
     }()
     
     lazy var signUpButton : UIButton = {
        var button = UIButton()
         button.setTitle("Sign Up", for: .normal)
-        button.titleLabel?.font = .robotoMedium(fontSize: 15)
+        button.titleLabel?.font = .robotoMedium(fontSize: smallFont)
         button.setTitleColor(colorGreen, for: .normal)
         button.backgroundColor = .none
-        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         button.addTarget(
             self,
             action: #selector(pushToNextController),
@@ -218,11 +185,13 @@ class LoginViewController: UIViewController {
         // Constraints for input fields
         usernameField.snp.makeConstraints { maker in
             maker.top.equalToSuperview().offset(50)
-            maker.width.equalToSuperview()
+            maker.left.equalToSuperview().offset(1)
+            maker.right.equalToSuperview().offset(-1)
         }
         passwordField.snp.makeConstraints { maker in
             maker.top.equalTo(usernameField.snp.bottom).offset(textFieldSpacing)
-            maker.width.equalToSuperview()
+            maker.left.equalToSuperview().offset(1)
+            maker.right.equalToSuperview().offset(-1)
         }
         loginButton.snp.makeConstraints { maker in
             maker.top.equalTo(passwordField.snp.bottom).offset(30)

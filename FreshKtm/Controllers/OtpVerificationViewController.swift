@@ -83,98 +83,34 @@ class OtpVerificationViewController: UIViewController {
     
     
     // Fields
-    lazy var opt_1 : MDCOutlinedTextField = {
-        var phonePrefix = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        phonePrefix.label.font = .robotoRegular(fontSize: smallFont)
-        phonePrefix.layer.cornerRadius = 8
-        
-        phonePrefix.preferredContainerHeight = 44
-        phonePrefix.verticalDensity = 1
-        
-        phonePrefix.setNormalLabelColor(UIColor.lightGray, for: .normal)
-        phonePrefix.setOutlineColor(UIColor.lightGray, for: .normal)
-        phonePrefix.translatesAutoresizingMaskIntoConstraints = false
-        return phonePrefix
-    }()
-    lazy var opt_2 : MDCOutlinedTextField = {
-        var phonePrefix = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        phonePrefix.label.font = .robotoRegular(fontSize: smallFont)
-        phonePrefix.layer.cornerRadius = 8
-        
-        phonePrefix.preferredContainerHeight = 44
-        phonePrefix.verticalDensity = 1
-        
-        phonePrefix.setNormalLabelColor(UIColor.lightGray, for: .normal)
-        phonePrefix.setOutlineColor(UIColor.lightGray, for: .normal)
-        phonePrefix.translatesAutoresizingMaskIntoConstraints = false
-        return phonePrefix
-    }()
-    lazy var opt_3 : MDCOutlinedTextField = {
-        var phonePrefix = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        phonePrefix.label.font = .robotoRegular(fontSize: smallFont)
-        phonePrefix.layer.cornerRadius = 8
-        
-        phonePrefix.preferredContainerHeight = 44
-        phonePrefix.verticalDensity = 1
-        
-        phonePrefix.setNormalLabelColor(UIColor.lightGray, for: .normal)
-        phonePrefix.setOutlineColor(UIColor.lightGray, for: .normal)
-        phonePrefix.translatesAutoresizingMaskIntoConstraints = false
-        return phonePrefix
-    }()
-    lazy var opt_4 : MDCOutlinedTextField = {
-        var phonePrefix = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        phonePrefix.label.font = .robotoRegular(fontSize: smallFont)
-        phonePrefix.layer.cornerRadius = 8
-        
-        phonePrefix.preferredContainerHeight = 44
-        phonePrefix.verticalDensity = 1
-        
-        phonePrefix.setNormalLabelColor(UIColor.lightGray, for: .normal)
-        phonePrefix.setOutlineColor(UIColor.lightGray, for: .normal)
-        phonePrefix.translatesAutoresizingMaskIntoConstraints = false
-        return phonePrefix
-    }()
-    lazy var opt_5 : MDCOutlinedTextField = {
-        var phonePrefix = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        phonePrefix.label.font = .robotoRegular(fontSize: smallFont)
-        phonePrefix.layer.cornerRadius = 8
-        
-        phonePrefix.preferredContainerHeight = 44
-        phonePrefix.verticalDensity = 1
-        
-        phonePrefix.setNormalLabelColor(UIColor.lightGray, for: .normal)
-        phonePrefix.setOutlineColor(UIColor.lightGray, for: .normal)
-        phonePrefix.translatesAutoresizingMaskIntoConstraints = false
-        return phonePrefix
-    }()
-    lazy var opt_6 : MDCOutlinedTextField = {
-        var phonePrefix = MDCOutlinedTextField(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        phonePrefix.label.font = .robotoRegular(fontSize: smallFont)
-        phonePrefix.layer.cornerRadius = 8
-        
-        phonePrefix.preferredContainerHeight = 44
-        phonePrefix.verticalDensity = 1
-        
-        phonePrefix.setNormalLabelColor(UIColor.lightGray, for: .normal)
-        phonePrefix.setOutlineColor(UIColor.lightGray, for: .normal)
-        phonePrefix.translatesAutoresizingMaskIntoConstraints = false
-        return phonePrefix
-    }()
+    @FormMaterialTextField(placeholder: "") var otp_1 : MaterialComponents.MDCOutlinedTextField
+    @FormMaterialTextField(placeholder: "") var otp_2 : MaterialComponents.MDCOutlinedTextField
+    @FormMaterialTextField(placeholder: "") var otp_3 : MaterialComponents.MDCOutlinedTextField
+    @FormMaterialTextField(placeholder: "") var otp_4 : MaterialComponents.MDCOutlinedTextField
+    @FormMaterialTextField(placeholder: "") var otp_5 : MaterialComponents.MDCOutlinedTextField
+    @FormMaterialTextField(placeholder: "") var otp_6 : MaterialComponents.MDCOutlinedTextField
     
+//    private func otpShifting() {
+//        otp_1.keyboardType = .decimalPad
+//        otp_2.keyboardType = .decimalPad
+//        otp_3.keyboardType = .decimalPad
+//        otp_4.keyboardType = .decimalPad
+//        otp_5.keyboardType = .decimalPad
+//        otp_6.keyboardType = .decimalPad
+//    }
     
     lazy var fieldStack : UIStackView = {
         var fieldStack = UIStackView()
         fieldStack.axis = .horizontal
-        fieldStack.spacing = 10
+        fieldStack.spacing = 15
         fieldStack.distribution = .fillEqually
 
-        fieldStack.addArrangedSubview(opt_1)
-        fieldStack.addArrangedSubview(opt_2)
-        fieldStack.addArrangedSubview(opt_3)
-        fieldStack.addArrangedSubview(opt_4)
-        fieldStack.addArrangedSubview(opt_5)
-        fieldStack.addArrangedSubview(opt_6)
+        fieldStack.addArrangedSubview(otp_1)
+        fieldStack.addArrangedSubview(otp_2)
+        fieldStack.addArrangedSubview(otp_3)
+        fieldStack.addArrangedSubview(otp_4)
+        fieldStack.addArrangedSubview(otp_5)
+        fieldStack.addArrangedSubview(otp_6)
         return fieldStack
     }()
     
@@ -350,7 +286,8 @@ class OtpVerificationViewController: UIViewController {
         }
         fieldStack.snp.makeConstraints { maker in
             maker.top.equalTo(enterLabel.snp.bottom).offset(textFieldSpacingMedium)
-            maker.width.equalToSuperview()
+            maker.left.equalToSuperview().offset(1)
+            maker.right.equalToSuperview().offset(-1)
         }
         confirmationStack.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()

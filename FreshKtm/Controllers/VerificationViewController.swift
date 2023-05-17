@@ -80,38 +80,20 @@ class VerificationViewController: UIViewController {
         return imageStack
     }()
     
-    
     // Fields
-    lazy var phonePrefix : MDCOutlinedTextField = {
-        var phonePrefix = MDCOutlinedTextField()
-        phonePrefix.frame.size = CGSize(width: 30, height: 0)
-        phonePrefix.label.text = "977"
-        phonePrefix.label.font = .robotoRegular(fontSize: smallFont)
-        phonePrefix.layer.cornerRadius = 8
-        
-        phonePrefix.preferredContainerHeight = 44
-        phonePrefix.verticalDensity = 1
-        
-        phonePrefix.setNormalLabelColor(UIColor.lightGray, for: .normal)
-        phonePrefix.setOutlineColor(UIColor.lightGray, for: .normal)
-        phonePrefix.translatesAutoresizingMaskIntoConstraints = false
-        return phonePrefix
-    }()
+    @FormMaterialTextField(placeholder: "977") var phonePrefix : MaterialComponents.MDCOutlinedTextField
+    @FormMaterialTextField(placeholder: "Phone Number") var phoneField : MaterialComponents.MDCOutlinedTextField
     
-    lazy var phoneField : MDCOutlinedTextField = {
-        var phoneField = MDCOutlinedTextField()
-        phonePrefix.frame.size = CGSize(width: 60, height: 0)
-        phoneField.label.text = "Phone Number"
-        phoneField.label.font = .robotoRegular(fontSize: smallFont)
-        phoneField.layer.cornerRadius = 8
+    lazy var fieldStack : UIStackView = {
+        var stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 5
+        stack.alignment = .fill
+        stack.distribution = .fill
         
-        phoneField.preferredContainerHeight = 44
-        phoneField.verticalDensity = 1
-        
-        phoneField.setNormalLabelColor(UIColor.lightGray, for: .normal)
-        phoneField.setOutlineColor(UIColor.lightGray, for: .normal)
-        phoneField.translatesAutoresizingMaskIntoConstraints = false
-        return phoneField
+        stack.addArrangedSubview(phonePrefix)
+        stack.addArrangedSubview(phoneField)
+        return stack
     }()
     
     lazy var noCodeLabel : UILabel = {
@@ -205,7 +187,6 @@ class VerificationViewController: UIViewController {
     
     
     // MARK: Main Calling Function
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -223,8 +204,7 @@ class VerificationViewController: UIViewController {
         // MARK: ScrollView ChildViews
         containerView.addSubview(phoneLabel)
         containerView.addSubview(helperLabel)
-        containerView.addSubview(phonePrefix)
-        containerView.addSubview(phoneField)
+        containerView.addSubview(fieldStack)
         containerView.addSubview(noCodeLabel)
         containerView.addSubview(generateOtpButton)
         containerView.addSubview(orLabel)
@@ -255,12 +235,12 @@ class VerificationViewController: UIViewController {
             maker.bottom.right.equalToSuperview().offset(-20)
             maker.width.equalTo(250)
         }
-        
         containerView.snp.makeConstraints { maker in
             maker.left.top.right.bottom.equalToSuperview()
             maker.width.equalToSuperview()
             maker.height.equalTo(520)
         }
+        
         
         // MARK: Constraints for labels
         phoneLabel.snp.makeConstraints { maker in
@@ -271,15 +251,14 @@ class VerificationViewController: UIViewController {
             maker.centerX.equalToSuperview()
             maker.top.equalTo(phoneLabel.snp.bottom).offset(textFieldSpacingMedium)
         }
-        phonePrefix.snp.makeConstraints { maker in
+        fieldStack.snp.makeConstraints { maker in
             maker.left.equalToSuperview().offset(1)
-            maker.top.equalTo(helperLabel.snp.bottom).offset(textFieldSpacingMedium)
-            maker.width.equalTo(70)
-        }
-        phoneField.snp.makeConstraints { maker in
-            maker.left.equalTo(phonePrefix.snp.right).offset(10)
-            maker.top.equalTo(helperLabel.snp.bottom).offset(textFieldSpacingMedium)
             maker.right.equalToSuperview().offset(-1)
+            maker.top.equalTo(helperLabel.snp.bottom).offset(textFieldSpacingMedium)
+            maker.width.equalToSuperview()
+        }
+        phonePrefix.snp.makeConstraints { maker in
+            maker.width.equalTo(50)
         }
         noCodeLabel.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()

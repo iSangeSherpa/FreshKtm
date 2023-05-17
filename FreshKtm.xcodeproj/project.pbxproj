@@ -14,7 +14,6 @@
 		500724882A120F0900A728C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 500724862A120F0900A728C3 /* LaunchScreen.storyboard */; };
 		500724912A12126400A728C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500724902A12126400A728C3 /* LoginViewController.swift */; };
 		500724A42A121D0400A728C3 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500724A32A121D0400A728C3 /* FontExtension.swift */; };
-		500724A62A12289C00A728C3 /* DropShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500724A52A12289C00A728C3 /* DropShadow.swift */; };
 		500724B02A12326800A728C3 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500724AB2A12326700A728C3 /* Roboto-Italic.ttf */; };
 		500724B12A12326800A728C3 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500724AC2A12326700A728C3 /* Roboto-Medium.ttf */; };
 		500724B22A12326800A728C3 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 500724AD2A12326800A728C3 /* Roboto-Bold.ttf */; };
@@ -25,6 +24,7 @@
 		504DB88E2A1362E00040932D /* PropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DB88D2A1362E00040932D /* PropertyWrapper.swift */; };
 		504DB8902A1382530040932D /* OtpVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DB88F2A1382530040932D /* OtpVerificationViewController.swift */; };
 		504DB8922A138E910040932D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 504DB8912A138E910040932D /* UIViewExtension.swift */; };
+		509BFE682A14A35F005E863E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509BFE672A14A35F005E863E /* UIColorExtension.swift */; };
 		FBA12C5BC6B5778B37FF0C89 /* Pods_FreshKtm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54D27D5CC5D9F825BBE926D6 /* Pods_FreshKtm.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +39,6 @@
 		500724892A120F0900A728C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		500724902A12126400A728C3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		500724A32A121D0400A728C3 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
-		500724A52A12289C00A728C3 /* DropShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropShadow.swift; sourceTree = "<group>"; };
 		500724AB2A12326700A728C3 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		500724AC2A12326700A728C3 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		500724AD2A12326800A728C3 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -50,6 +49,7 @@
 		504DB88D2A1362E00040932D /* PropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrapper.swift; sourceTree = "<group>"; };
 		504DB88F2A1382530040932D /* OtpVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpVerificationViewController.swift; sourceTree = "<group>"; };
 		504DB8912A138E910040932D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		509BFE672A14A35F005E863E /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		54D27D5CC5D9F825BBE926D6 /* Pods_FreshKtm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FreshKtm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0CC48C3BEC4191D8650D701 /* Pods-FreshKtm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreshKtm.release.xcconfig"; path = "Target Support Files/Pods-FreshKtm/Pods-FreshKtm.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,9 +143,9 @@
 			isa = PBXGroup;
 			children = (
 				500724A32A121D0400A728C3 /* FontExtension.swift */,
-				500724A52A12289C00A728C3 /* DropShadow.swift */,
 				504DB88D2A1362E00040932D /* PropertyWrapper.swift */,
 				504DB8912A138E910040932D /* UIViewExtension.swift */,
+				509BFE672A14A35F005E863E /* UIColorExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -294,9 +294,9 @@
 				500724912A12126400A728C3 /* LoginViewController.swift in Sources */,
 				500724802A120F0800A728C3 /* LandingViewController.swift in Sources */,
 				5007247C2A120F0800A728C3 /* AppDelegate.swift in Sources */,
-				500724A62A12289C00A728C3 /* DropShadow.swift in Sources */,
 				5007247E2A120F0800A728C3 /* SceneDelegate.swift in Sources */,
 				504DB88E2A1362E00040932D /* PropertyWrapper.swift in Sources */,
+				509BFE682A14A35F005E863E /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
