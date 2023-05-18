@@ -8,19 +8,7 @@ class VerificationViewController: UIViewController {
     
     // MARK: Variables
     var textFieldSpacingSmall = 20
-    var textFieldSpacingMedium = 30
-    
-    var smallFont : CGFloat = 14
-    var mediumFont : CGFloat = 16
-    var largeFont : CGFloat = 20
-    
-    var colorLight : UIColor = {
-        return UIColor(red: 95/255, green: 95/255, blue: 95/255, alpha: 1)
-    }()
-    var colorGreen : UIColor = {
-        return UIColor(red: 31/255, green: 143/255, blue: 42/255, alpha: 1.0)
-    }()
-    
+    var textFieldSpacingMedium = 30    
     
     // Images
     var logoImageView : UIImageView = {
@@ -35,25 +23,6 @@ class VerificationViewController: UIViewController {
         imageView.image = UIImage(named: "BackgroundImage")
         imageView.contentMode = .scaleAspectFill
         return imageView
-    }()
-    
-    
-    //  Labels
-    
-    lazy var phoneLabel : UILabel = {
-       var phoneLabel = UILabel()
-        phoneLabel.text = "Enter your Phone Number"
-        phoneLabel.textColor = colorGreen
-        phoneLabel.font = .robotoMedium(fontSize: mediumFont)
-        return phoneLabel
-    }()
-    
-    lazy var helperLabel : UILabel = {
-       var helperLabel = UILabel()
-        helperLabel.text = "We will send you a 6-digit verification code"
-        helperLabel.textColor = .gray
-        helperLabel.font = .robotoRegular(fontSize: smallFont)
-        return helperLabel
     }()
     
     var facebookLogo : UIImageView = {
@@ -82,7 +51,7 @@ class VerificationViewController: UIViewController {
     
     // Fields
     @FormMaterialTextField(placeholder: "977") var phonePrefix : MaterialComponents.MDCOutlinedTextField
-    @FormMaterialTextField(placeholder: "Phone Number") var phoneField : MaterialComponents.MDCOutlinedTextField
+    @FormMaterialTextField(placeholder: "Phone Number", keyboardType: .numberPad) var phoneField : MaterialComponents.MDCOutlinedTextField
     
     lazy var fieldStack : UIStackView = {
         var stack = UIStackView()
@@ -96,66 +65,29 @@ class VerificationViewController: UIViewController {
         return stack
     }()
     
-    lazy var noCodeLabel : UILabel = {
-        var noCodeLabel = UILabel()
-        noCodeLabel.text = "Didn't get the code ?"
-        noCodeLabel.textColor = .gray
-        noCodeLabel.font = .robotoRegular(fontSize: smallFont)
-        return noCodeLabel
-    }()
+    // Buttons
+    let generateOtpButton : UIButton = primaryButton(titleLabel: "Generate OTP")
+    let registerButton : UIButton = secondaryButton(titleLabel: "Register Now", font: UIFont.robotoRegular(fontSize: 14))
     
-    lazy var generateOtpButton : UIButton = {
-        var generateOtpButton = UIButton()
-        generateOtpButton.titleLabel?.font = .robotoMedium(fontSize: largeFont)
-        generateOtpButton.setTitle("Generate OTP", for: .normal)
-        generateOtpButton.layer.cornerRadius = 8
-        generateOtpButton.backgroundColor = colorGreen
-        
-        generateOtpButton.addTarget(self, action: #selector(pushToNextController), for: .touchUpInside)
-        return generateOtpButton
-    }()
-    
-    lazy var orLabel : UILabel = {
-        var orLabel = UILabel()
-        orLabel.text = "OR"
-        orLabel.textColor = .darkGray
-        orLabel.font = .robotoLight(fontSize: smallFont)
-        return orLabel
-    }()
+    // Labels
+    let phoneLabel : UILabel = customLabel(title: "Enter your Phone Number", size: 16, font: UIFont.robotoMedium(fontSize: 16),textColor: UIColor(fromHex: "#1F8F2A"))
+    let helperLabel : UILabel = customLabel(title: "We will send you a 6-digit verification code", size: 14, textColor: .gray)
+    let noCodeLabel : UILabel = customLabel(title: "Didn't get the code ?", size: 14, textColor: .gray)
+    let orLabel : UILabel = customLabel(title: "OR", size: 14, textColor: .darkGray)
+    let newUserLabel : UILabel = customLabel(title: "New user ?", size: 16, textColor: .darkGray)
 
-
-    lazy var newUserLabel : UILabel = {
-        var newUserLabel = UILabel()
-        newUserLabel.text = "New user ?"
-        newUserLabel.textColor = .darkGray
-        newUserLabel.font = .robotoRegular(fontSize: mediumFont)
-        return newUserLabel
-    }()
-    
-    lazy var registerLabel : UIButton = {
-        var registerButton = UIButton()
-        registerButton.frame.size = CGSize(width: 300, height: 50)
-        registerButton.setTitle("Register Now", for: .normal)
-        registerButton.titleLabel?.font = .robotoRegular(fontSize: mediumFont)
-        registerButton.setTitleColor(colorGreen, for: .normal)
-        
-//        registerButton.addTarget(self, action: #selector(pushToNextController), for: .touchUpInside)
-        return registerButton
-    }()
-    
     lazy var labelStack : UIStackView = {
         var labelStack = UIStackView()
         labelStack.axis = .horizontal
         labelStack.distribution = .fillEqually
 
         labelStack.addArrangedSubview(newUserLabel)
-        labelStack.addArrangedSubview(registerLabel)
+        labelStack.addArrangedSubview(registerButton)
         return labelStack
     }()
-
+    
     
     // Containers
-    
     lazy var containerView : UIView = {
        var containerView = UIView()
         return containerView
@@ -195,7 +127,6 @@ class VerificationViewController: UIViewController {
 
     private func setupUI() {
         view.backgroundColor = .white
-        phonePrefix.isUserInteractionEnabled = false
         
         view.addSubview(logoImageView)
         view.addSubview(backgroundImageView)
@@ -210,6 +141,11 @@ class VerificationViewController: UIViewController {
         containerView.addSubview(orLabel)
         containerView.addSubview(imageStack)
         containerView.addSubview(labelStack)
+        
+        generateOtpButton.addTarget(self, action: #selector(pushToNextController), for: .touchUpInside)
+        
+        phonePrefix.isUserInteractionEnabled = false
+        
         
         logoImageView.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()
@@ -255,7 +191,6 @@ class VerificationViewController: UIViewController {
             maker.left.equalToSuperview().offset(1)
             maker.right.equalToSuperview().offset(-1)
             maker.top.equalTo(helperLabel.snp.bottom).offset(textFieldSpacingMedium)
-            maker.width.equalToSuperview()
         }
         phonePrefix.snp.makeConstraints { maker in
             maker.width.equalTo(50)
@@ -285,7 +220,6 @@ class VerificationViewController: UIViewController {
         }
         
     }
-    
     
     @objc func pushToNextController() {
         navigationController?.pushViewController(OtpVerificationViewController(), animated: true)

@@ -3,7 +3,7 @@ import UIKit
 
 extension UIColor {
     
-    convenience init?(fromHex hex: String) {
+    public convenience init?(fromHex hex: String) {
         
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
         hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")

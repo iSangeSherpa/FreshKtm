@@ -10,18 +10,6 @@ class SignupViewController: UIViewController {
     // MARK: Variables
     var textFieldSpacing = 20
     
-    var smallFont : CGFloat = 14
-    var mediumFont : CGFloat = 16
-    var largeFont : CGFloat = 20
-    
-    var colorLight : UIColor = {
-        return UIColor(red: 95/255, green: 95/255, blue: 95/255, alpha: 1)
-    }()
-    var colorGreen : UIColor = {
-        return UIColor(red: 31/255, green: 143/255, blue: 42/255, alpha: 1.0)
-    }()
-    
-    
     //  MARK: Images
     var logoImageView : UIImageView = {
        var imageView = UIImageView()
@@ -56,7 +44,6 @@ class SignupViewController: UIViewController {
         imageStack.axis = .horizontal
         imageStack.distribution = .fillEqually
         imageStack.spacing = 30
-//        imageStack.backgroundColor = .red
         imageStack.addArrangedSubview(facebookLogo)
         imageStack.addArrangedSubview(googleLogo)
         return imageStack
@@ -64,50 +51,17 @@ class SignupViewController: UIViewController {
     
     
     //  MARK: Fields
-    
     @FormMaterialTextField(placeholder: "Enter username") var usernameField : MaterialComponents.MDCOutlinedTextField
     @FormMaterialTextField(placeholder: "Enter email") var emailField : MaterialComponents.MDCOutlinedTextField
     @FormMaterialTextField(placeholder: "Enter password") var passwordField : MaterialComponents.MDCOutlinedTextField
     @FormMaterialTextField(placeholder: "Confirm Password") var confirmPasswordField : MaterialComponents.MDCOutlinedTextField
     
-    lazy var signUpButton : UIButton = {
-        var signUpButton = UIButton()
-        signUpButton.titleLabel?.font = .robotoMedium(fontSize: mediumFont)
-        signUpButton.titleLabel?.numberOfLines = 1
-        signUpButton.setTitle("Sign up", for: .normal)
-        signUpButton.layer.cornerRadius = 8
-        signUpButton.backgroundColor = colorGreen
-        return signUpButton
-    }()
-    
+    let signUpButton : UIButton = primaryButton(titleLabel: "Sign Up")
+    let membershipButton : UIButton = secondaryButton(titleLabel: "Get a membership", font: UIFont.robotoRegular(fontSize: 14))
+    let registerWithPhoneButton : UIButton = secondaryButton(titleLabel: "Register with Phone Number", titleColor: .gray)
     
     //  MARK: Labels
-    lazy var registerWithPhone : UIButton = {
-       var registerWithPhone = UIButton()
-        registerWithPhone.setTitle("Register with Phone Number", for: .normal)
-        registerWithPhone.setTitleColor(.gray, for: .normal)
-        registerWithPhone.titleLabel?.font = .robotoMedium(fontSize: 14)
-        
-        registerWithPhone.addTarget(self, action: #selector(pushToNextController), for: .touchUpInside)
-        return registerWithPhone
-    }()
-    
-    lazy var orLabel : UILabel = {
-       var orLabel = UILabel()
-        orLabel.text = "OR"
-        orLabel.textColor = .darkGray
-        orLabel.font = .robotoLight(fontSize: 15)
-        return orLabel
-    }()
-    
-    lazy var membershipLabel : UIButton = {
-        var button = UIButton()
-         button.setTitle("Get a membership", for: .normal)
-         button.titleLabel?.font = .robotoRegular(fontSize: 14)
-         button.setTitleColor(colorGreen, for: .normal)
-         button.backgroundColor = .none
-         return button
-    }()
+    let orLabel : UILabel = customLabel(title: "OR", size: 15, textColor: .darkGray)
 
     // MARK: Containers
     lazy var containerView : UIView = {
@@ -120,7 +74,6 @@ class SignupViewController: UIViewController {
         scrollView.isScrollEnabled = true
         scrollView.showsVerticalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-//        scrollView.backgroundColor = .brown
         scrollView.addSubview(containerView)
         return scrollView
     }()
@@ -140,9 +93,7 @@ class SignupViewController: UIViewController {
     }()
 
     
-    
     // MARK: Main Calling Function
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -162,11 +113,12 @@ class SignupViewController: UIViewController {
         containerView.addSubview(passwordField)
         containerView.addSubview(confirmPasswordField)
         containerView.addSubview(signUpButton)
-        containerView.addSubview(registerWithPhone)
+        containerView.addSubview(registerWithPhoneButton)
         containerView.addSubview(orLabel)
         containerView.addSubview(imageStack)
-        containerView.addSubview(membershipLabel)
+        containerView.addSubview(membershipButton)
         
+        registerWithPhoneButton.addTarget(self, action: #selector(pushToNextController), for: .touchUpInside)
         
         // MARK: Image Constraints
         logoImageView.snp.makeConstraints { maker in
@@ -231,12 +183,12 @@ class SignupViewController: UIViewController {
         
         
         // MARK: Constraints for bottom labels
-        registerWithPhone.snp.makeConstraints { maker in
+        registerWithPhoneButton.snp.makeConstraints { maker in
             maker.top.equalTo(signUpButton.snp.bottom).offset(20)
             maker.centerX.equalToSuperview()
         }
         orLabel.snp.makeConstraints { maker in
-            maker.top.equalTo(registerWithPhone.snp.bottom).offset(20)
+            maker.top.equalTo(registerWithPhoneButton.snp.bottom).offset(20)
             maker.centerX.equalToSuperview()
         }
         imageStack.snp.makeConstraints { maker in
@@ -245,11 +197,10 @@ class SignupViewController: UIViewController {
             maker.height.equalTo(view.frame.width/4)
             maker.top.equalTo(orLabel.snp.bottom).offset(10)
         }
-        membershipLabel.snp.makeConstraints { maker in
+        membershipButton.snp.makeConstraints { maker in
             maker.top.equalTo(imageStack.snp.bottom).offset(30)
             maker.centerX.equalToSuperview()
         }
-        
     }
 
     

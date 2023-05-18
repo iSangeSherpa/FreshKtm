@@ -4,21 +4,10 @@ import SnapKit
 // Material component dependencies
 import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
-
-
 class LoginViewController: UIViewController {
         
     // MARK: Variables
     var textFieldSpacing = 20
-    
-    var smallFont : CGFloat = 14
-    var mediumFont : CGFloat = 16
-    var largeFont : CGFloat = 20
-    
-    var colorLight : UIColor = {
-        return UIColor(red: 95/255, green: 95/255, blue: 95/255, alpha: 1)
-    }()
-    var colorGreen = UIColor(fromHex: "#1F8F2A")
     
     // Images
     var logoImageView : UIImageView = {
@@ -36,52 +25,17 @@ class LoginViewController: UIViewController {
     }()
     
     // Fields
-    
     @FormMaterialTextField(placeholder: "Enter email or username") var usernameField : MaterialComponents.MDCOutlinedTextField
     @FormMaterialTextField(placeholder: "Password") var passwordField : MaterialComponents.MDCOutlinedTextField
 
-    
-    lazy var loginButton : UIButton = {
-        var loginButton = UIButton()
-        loginButton.titleLabel?.font = .robotoMedium(fontSize: mediumFont)
-        loginButton.setTitle("Login", for: .normal)
-        loginButton.layer.cornerRadius = 8
-        loginButton.backgroundColor = colorGreen
-        return loginButton
-    }()
-    
+    // Buttons
+    let loginButton : UIButton = primaryButton(titleLabel: "Login")
+    let signUpButton : UIButton = secondaryButton(titleLabel: "Sign Up")
     
     //  Labels
+    let forgotPasswordLabel : UILabel = customLabel(title: "Forgot password/username ?")
+    let noAccountLabel : UILabel = customLabel(title: "Don't have an account ?")
     
-    lazy var forgotPasswordLabel : UILabel = {
-       var label = UILabel()
-        label.text = "Forgot Password / Username ?"
-        label.textColor = colorLight
-        label.font = .robotoRegular(fontSize: smallFont)
-        return label
-    }()
-    
-    lazy var noAccountLabel : UILabel = {
-       var label = UILabel()
-        label.text = "Don't have an account ?"
-        label.textColor = colorLight
-        label.font = .robotoRegular(fontSize: smallFont)
-        return label
-    }()
-    
-    lazy var signUpButton : UIButton = {
-       var button = UIButton()
-        button.setTitle("Sign Up", for: .normal)
-        button.titleLabel?.font = .robotoMedium(fontSize: smallFont)
-        button.setTitleColor(colorGreen, for: .normal)
-        button.backgroundColor = .none
-        button.addTarget(
-            self,
-            action: #selector(pushToNextController),
-            for: .touchUpInside
-        )
-        return button
-    }()
     
     lazy var signUpStack : UIStackView = {
        var stack = UIStackView()
@@ -92,9 +46,7 @@ class LoginViewController: UIViewController {
         return stack
     }()
     
-    
     // Containers
-    
     lazy var containerView : UIView = {
        var containerView = UIView()
         return containerView
@@ -122,12 +74,9 @@ class LoginViewController: UIViewController {
         container.addSubview(scrollView)
         return container
     }()
-
-    
     
     
     // MARK: Main Calling Function
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -148,6 +97,8 @@ class LoginViewController: UIViewController {
         containerView.addSubview(forgotPasswordLabel)
         containerView.addSubview(noAccountLabel)
         containerView.addSubview(signUpStack)
+        
+        signUpButton.addTarget(self, action: #selector(pushToNextController), for: .touchUpInside)
         
         logoImageView.snp.makeConstraints { maker in
             maker.centerX.equalToSuperview()
@@ -209,7 +160,6 @@ class LoginViewController: UIViewController {
             maker.top.equalTo(forgotPasswordLabel.snp.bottom).offset(15)
             maker.centerX.equalToSuperview()
         }
-        
         
     }
     

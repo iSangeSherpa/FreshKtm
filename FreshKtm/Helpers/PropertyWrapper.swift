@@ -5,12 +5,13 @@ import UIKit
 public class FormMaterialTextField {
     public var wrappedValue: MaterialComponents.MDCOutlinedTextField
 
-    public init(placeholder: String, keyboardType: UIKeyboardType = .default, capitalizationType: UITextAutocapitalizationType = .words, isSecureTextEntry: Bool = false, leftView : UIImageView? = nil){
+    public init(placeholder: String, keyboardType: UIKeyboardType = .default, capitalizationType: UITextAutocapitalizationType = .words, isSecureTextEntry: Bool = false, leftView : UIImageView? = nil, alignment: NSTextAlignment = .left){
         
         let colorGreen = UIColor(fromHex: "1F8F2A")
 
         self.wrappedValue = MaterialComponents.MDCOutlinedTextField()
         wrappedValue.placeholder = placeholder
+        wrappedValue.textAlignment = alignment
         wrappedValue.keyboardType = keyboardType
         wrappedValue.autocapitalizationType = capitalizationType
         wrappedValue.isSecureTextEntry = isSecureTextEntry
@@ -25,11 +26,9 @@ public class FormMaterialTextField {
         wrappedValue.setOutlineColor(colorGreen!, for: .editing)
         wrappedValue.verticalDensity = 1
         wrappedValue.setOutlineColor(UIColor.systemGray, for: .normal)
-//        wrappedValue.layer.backgroundColor = UIColor.backgroundColor.cgColor
         wrappedValue.layer.cornerRadius = 8
         wrappedValue.preferredContainerHeight = 44
         wrappedValue.sizeToFit()
-
     }
 
 

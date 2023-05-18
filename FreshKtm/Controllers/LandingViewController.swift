@@ -10,20 +10,8 @@ class LandingViewController: UIViewController {
         return imageView
     }()
     
-    lazy var button : UIButton = {
-        var button = UIButton()
-        button.titleLabel?.font = .robotoMedium(fontSize: 20)
-        button.setTitle("Get Started", for: .normal)
-        button.addTarget(
-            self,
-            action: #selector(pushToNextController),
-            for: .touchUpInside
-        )
-        button.layer.cornerRadius = 8
-        button.backgroundColor = UIColor(red: 31/255, green: 143/255, blue: 42/255, alpha: 1.0)
-        return button
-    }()
-
+    var button : UIButton = primaryButton(titleLabel: "Get Started")
+    
     
     // MARK: Main Calling Method
     override func viewDidLoad() {
@@ -37,6 +25,8 @@ class LandingViewController: UIViewController {
         
         view.addSubview(button)
         view.addSubview(imageView)
+        
+        button.addTarget(self, action: #selector(pushToNextController), for: .touchUpInside)
         
         imageView.snp.makeConstraints { maker in
             maker.top.equalToSuperview().offset(100)
